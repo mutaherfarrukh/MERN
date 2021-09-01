@@ -8,7 +8,7 @@ function App() {
       <h1>hey it's me</h1>
       <Test message="heloo it me" background={true}/>
       <Test message="morninggggggggggggg" background={false}/>
-      <Test message="ellllloooooo" background={true}/>
+      <Test message="hellllloooooo" background={true}/>
       
       <div className="row">
         <Pixel />
