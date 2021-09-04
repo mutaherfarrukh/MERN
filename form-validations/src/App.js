@@ -1,4 +1,3 @@
-
 import './App.css';
 import TraditionalForm from './components/TraditionalForm';
 import SimpleForm from './components/SimpleForm';

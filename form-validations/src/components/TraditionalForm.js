@@ -44,9 +44,9 @@ const TraditionalForm = (props) => {
     return (
         <div className="form">
             <h1>Build a Sundae!</h1>
-            <form>
 
-            <div className="form-group">
+            <form>
+                <div className="form-group">
                     <label>Name</label>
                     <input type="text" className="form-control" onChange={onNameChange}/>
                     <span className="alert-danger">{nameErrors}</span>
