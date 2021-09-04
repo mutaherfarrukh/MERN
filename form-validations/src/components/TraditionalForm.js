@@ -10,19 +10,52 @@ const TraditionalForm = (props) => {
     const [whipped, setWhipped] = useState(false);
 
 
+    //to set validations
+    const [nameErrors, setNameErrors] = useState("");
+    const [flavorErrors, setFlavorErrors] = useState("");
+    const [toppingErrors, setToppingErrors] = useState("");
+    const [numScoopsErrors, setNumScoopsErrors] = useState("");
+    const [sauceErrors, setSauceErrors] = useState("");
+
+
+    const onNameChange = (event) => {
+        setName(event.target.value);
+
+        if(event.target.value.length < 3){
+            setNameErrors("name must be at least 3 characters!");
+        }
+        else{
+            setNameErrors("");
+        }
+    }
+
+    const onFlavorChange = (event) => {
+        setFlavor(event.target.value);
+
+        if(event.target.value.length < 5){
+            setFlavorErrors("Flavor must be at least 5 characters!");
+        }
+        else{
+            setFlavorErrors("");
+        }
+    }
+
+
     return (
         <div className="form">
             <h1>Build a Sundae!</h1>
             <form>
 
-                <div className="form-group">
+            <div className="form-group">
                     <label>Name</label>
-                    <input type="text" className="form-control" onChange={(event)=>setName(event.target.value)}/>
+                    <input type="text" className="form-control" onChange={onNameChange}/>
+                    <span className="alert-danger">{nameErrors}</span>
                 </div>
 
                 <div className="form-group">
                     <label>Flavor</label>
-                    <input type="text" className="form-control"onChange={(event)=>setFlavor(event.target.value)}/>
+                    <input type="text" className="form-control" onChange={onFlavorChange}/>
+                    <span className="alert-danger">{flavorErrors}</span>
                 </div>
 
                 <div className="form-group">
