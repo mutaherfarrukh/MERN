@@ -18,7 +18,7 @@ function App() {
       {/* <InputBox /> */}
       {/* <DisplayBox /> */}
       <br />
-      <InputBox  boxes={presentBox} />
+      <InputBox boxes={presentBox} />
 
     </div>
   );

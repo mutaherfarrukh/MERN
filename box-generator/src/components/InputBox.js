@@ -10,6 +10,7 @@ const InputBox = (props) => {
         const newBox = {color : event.target[0].value};
         // props.onNewBox( newBox );
         setBoxes([...boxes, newBox]);
+        setColor("");
     };
 
     return(
@@ -25,7 +26,7 @@ const InputBox = (props) => {
         <div style={{display: "flex"}}>
             {boxes.map((item, i) => {
                 return (
-                    <div key={i} style= {{backgroundColor:color}} className="showBox"></div>
+                    <div key={i} style= {{backgroundColor:item.color}} className="showBox"></div>
                 )
             })}
         </div>

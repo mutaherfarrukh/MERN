@@ -6,7 +6,7 @@
 //     return(
 //         <div className="form">
 //             <div className="showBox">
-//                 {/* <div key = {i} style={{backgroundColor : item.color}}></div> */}
+//                 <div key = {i} style={{backgroundColor : item.color}}></div>
 //                 boxes.map((color , i) => {})
 //             </div>
 //         </div>
