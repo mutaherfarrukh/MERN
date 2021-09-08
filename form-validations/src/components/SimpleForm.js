@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 
+
+
 const SimpleForm = (props) => {
     const [form, setForm] = useState({
         name: "",
@@ -21,6 +23,7 @@ const SimpleForm = (props) => {
         if(value.length >= length){
             return false;
         }
+
         return true;
     }
 
