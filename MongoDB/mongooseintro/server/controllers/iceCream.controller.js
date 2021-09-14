@@ -35,7 +35,8 @@ module.exports.updateSingleIceCream = (req,res) => {
 
 module.exports.addTopping = (req, res) => {
     IceCream.updateOne({_id: req.params._id},
-        {$push: {toppings: res.body.topping}})
+        req.body)
+        // {$push: {topping: res.body.topping}})
         .then(singleIceCream => res.json({results: singleIceCream}))
         .catch(err => res.json({message: "that didn't quite work", err}))
 }
