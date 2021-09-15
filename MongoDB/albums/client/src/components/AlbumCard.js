@@ -1,16 +1,32 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
+import {Link} from 'react-router-dom';
 
 
 const AlbumCard = (props) => {
     const {artist, imgURL, name, rating, releaseYear, genre} = props.data;
+    
+
+    const onDeleteHandler = (_id) => {
+        console.log(_id);
+
+        axios.delete(`http://localhost:8000/api/albums/${_id}/delete`)
+            .then(res => {
+                console.log(res);
+                // props.setLoaded(false);
+                props.setLoaded(prevState=>!prevState);
+            })
+            .catch(err => console.log(err));
+    }
+
     return (
         <div>
             <div className="albumCard">
                 <img src={imgURL} alt={name}/>
-                <h3>{name}</h3>
+                <h3><Link to={`/albums/${props.data._id}`}>{name}</Link></h3>
                 <h3><i>{artist}, {releaseYear}</i></h3>
                 <h3><i>{genre}</i></h3>
-                <h4><b>Paul rates it {rating}/5</b></h4>
+                <h4><b>Paul rates it {rating}/5</b> <button className="delete" onClick={()=> onDeleteHandler(props.data._id)}>x</button></h4>
             </div>
         </div>
     )

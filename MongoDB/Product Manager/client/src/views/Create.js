@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import {useHistory} from 'react-router-dom';
+
 
 const Create = (props) => {
-    const history = useHistory();
+
 
     const [form,setForm] = useState({
-        tilte: "",
+        title: "",
         price: "",
         description: "",
     })
@@ -24,7 +24,7 @@ const Create = (props) => {
         axios.post("http://localhost:8000/api/productManagers/create", form)
             .then(res => {
                 console.log(res);
-                history.push('/');
+                props.setLoaded(loaded=>!loaded);
             })
             .catch(err => console.log(err))
     }
@@ -44,7 +44,7 @@ const Create = (props) => {
                     <input name="description" className="form-control" type="text" placeholder="description" onChange={onChangeHandler} />
                 </div>
 
-                <input type="submit" className="btn btn-primary"/>
+                <input type="submit" className="btn btn-primary" value="Create"/>
             </form>
         </div>
     )
