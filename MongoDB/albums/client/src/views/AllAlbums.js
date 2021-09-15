@@ -8,7 +8,7 @@ import AlbumCard from '../components/AlbumCard';
 const AllAlbums = (props) => {
     const [albums, setAlbums] = useState([]);
 
-  useEffect(()=> {
+    useEffect(()=> {
     axios.get("http://localhost:8000/api/albums/all")
         .then(res => setAlbums(res.data.results))
         .catch(err => console.log(err))
